@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title class="text-white">Hogwarts Sorting Hat</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+<style>
+  .text-white{
+      color:white}
+  .button {
+  background-color: #6a75ca; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
+
+<body style="background-color:#3296c4cc" class="text-white">
+ <div class="login">
+	<h1 style="font-size:50px"><center>Hogwarts Sorting Hat</center></h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" >
+    <center>
+      <table>
+        <tr>
+    	<td><label for="Birthday"><b>Birthday</b></label></td>
+    <td><input type="text" name="Birthday" placeholder="Birthday" required="required" /></td>
+    </tr>
+  <tr>
+  <td><label for="Best Hand"><b>Best Hand</b></label></td>
+<td><input type="text" name="Best Hand" placeholder="Best Hand" required="required" /><td>
+</tr>
+<tr>
+<td><label for="Arithmancy"><b>Arithmancy</b></label></td>
+<td><input type="number" set="any" name="Arithmancy" placeholder="Arithmancy" required="required" /></td>
+</tr>
+<tr>
+<td><label for="Astronomy"><b>Astronomy</b></label></td>
+<td><input type="number" set="any"  name="Astronomy" placeholder="Astronomy" required="required" /></td>
+        
+      </tr>
+    <tr>
+
+    <td><label for="Herbology"><b>Herbology</b></label></td>
+  <td><input type="number" set="any"  name="Herbology" placeholder="Herbology" required="required" /></td>
+</tr>
+<tr>
+<td><label for="Defense Against the Dark Arts"><b>Defense Against the Dark Arts             </b></label></td>
+<td><input type="number" set="any"  name="Defense Against the Dark Arts" placeholder="Defense Against the Dark Arts" required="required" />
+        </td>
+      </tr>
+    <tr>
+    <td>
+        <label for="Divination"><b>Divination</b></label></td>
+      <td><input type="number" set="any"  name="Divination" placeholder="Divination" required="required" /></td>
+        </tr>
+      <tr>
+      <td><label for="Muggle Studies"><b>Muggle Studies</b></label></td>
+      <td><input type="number" set="any"  name="Muggle Studies" placeholder="Muggle Studies" required="required" /></td>
+        </tr>
+      <tr>
+      <td><label for="Ancient Runes"><b>Ancient Runes</b></label></td>
+    <td><input type="number" set="any"  name="Ancient Runes" placeholder="Ancient Runes" required="required" /></td>
+        </tr>
+      <tr>
+      <td>
+        <label for="History of Magic"><b>History of Magic</b></label></td>
+      <td><input type="number" set="any"  name="History of Magic" placeholder="History of Magic" required="required" /></td>
+    </tr>
+  <tr>
+        
+      <td><label for="Transfiguration"><b>Transfiguration</b></label></td>
+    <td><input type="number" set="any"  name="Transfiguration" placeholder="Transfiguration" required="required" /></td>
+        </tr>
+      <tr>
+      <td>
+        <label for="Potions"><b>Potions</b></label></td>
+      <td><input type="number" set="any"  name="Potions" placeholder="Potions" required="required" /></td>
+        </tr>
+      <tr><td><label for="Care of Magical Creatures"><b>Care of Magical Creatures</b></label></td>
+      <td><input type="number" set="any"  name="Care of Magical Creatures" placeholder="Care of Magical Creatures" required="required" /></td>
+        </tr>
+      <tr>
+      <td><label for="Charms"><b>Charms</b></label></td>
+    <td><input type="number" set="any"  name="Charms" placeholder="Charms" required="required" /></td>
+        </tr>
+      <tr><td><label for="Flying"><b>Flying</b></label></td>
+      <td><input type="number" set="any" name="Flying" placeholder="Flying" required="required" /></td>
+    </td>
+        </tr>
+        
+      </table>
+    </center>
+  <center><button type="submit" class="button">Predict</button></center>
+    </form>
+
+   <br>
+   <br>
+  <center><p class="text-white" style="font-size:30px">{{ prediction_text }}</p></center>
+
+ </div>
+
+
+</body>
+</html>
